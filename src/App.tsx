@@ -1,9 +1,13 @@
-import './App.css'
+import './App.css';
+import NewItem from './assets/NewItem';
 
 function App() {
   return (
-    <h1>Hello World 🤡</h1>
-  )
+    <div>
+      <h1>App</h1>
+      <NewItem />
+    </div>
+  );
 }
 
-export default App
+export default App;

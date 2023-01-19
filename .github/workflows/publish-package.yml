@@ -1,4 +1,4 @@
-name Vite React Components
+name: Vite React Components
 
 on:
   release:

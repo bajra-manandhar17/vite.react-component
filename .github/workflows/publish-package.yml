@@ -1,8 +1,8 @@
 name: Vite React Components
 
 on:
-  release:
-    types: [created]
+  push:
+    branches: [main, develop]
 
 jobs:
   build:
@@ -12,9 +12,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: |
-          npm install
-          npm run lint
+      - run: npm install
     
   publish-gpr:
     needs: build

@@ -4,8 +4,8 @@ import { render, screen } from '@testing-library/react';
 import App from './App';
 
 describe('App', () => {
-  it('renders ', () => {
+  it('renders button', () => {
     render(<App />);
-    screen.getByText('Hello World 🤖');
+    screen.getByText('Hello');
   });
 });

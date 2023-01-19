@@ -1,8 +1,12 @@
 import './App.css';
-// import NewItem from './assets/NewItem';
+import Button from '@/Components/Button';
 
 function App() {
-  return <h1>Hello World 🤖</h1>;
+  return (
+    <div>
+      <Button label="Hello" color="warning" variant="contained" size="large" />
+    </div>
+  );
 }
 
 export default App;

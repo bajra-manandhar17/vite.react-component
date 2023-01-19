@@ -1,8 +1,8 @@
 name: Vite React Components
 
 on:
-  push:
-    branches: [main, develop]
+  release:
+    types: [created]
 
 jobs:
   build:
@@ -27,7 +27,7 @@ jobs:
           node-version: 18
           registry-url: https://npm.pkg.github.com/
       - run: npm install
-      - run: npm publish publish
+      - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
           

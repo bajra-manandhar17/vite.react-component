@@ -19,7 +19,7 @@
     "declaration": true,
     "baseUrl": ".",
     "paths": {
-      "react.vite-components": ["src/components"],
+      "vite.react-components": ["src/components"],
       "@/*": ["src/*"]
     },
     "typeRoots": ["node_modules/@types", "./dist/Components/index.d.ts"]

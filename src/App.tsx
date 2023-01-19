@@ -1,9 +1,10 @@
 import './App.css';
+import Button from '@/Components/Button';
 
 function App() {
   return (
     <div>
-      <h1>App</h1>
+      <Button label="Click me" />
     </div>
   );
 }

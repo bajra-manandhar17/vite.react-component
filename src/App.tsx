@@ -1,11 +1,10 @@
 import './App.css';
-import NewItem from './assets/NewItem';
+import Button from '@/Components/Button';
 
 function App() {
   return (
     <div>
-      <h1>App</h1>
-      <NewItem />
+      <Button label="Click me" />
     </div>
   );
 }

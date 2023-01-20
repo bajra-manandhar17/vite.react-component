@@ -1,11 +1,12 @@
-name: Vite MUI TS Package
+name: React Vite Package
 
 on:
-  release:
-    types: [created]
+  push:
+    branches: [main, develop]
 
 jobs:
   build:
+    # if: github.event_name == 'push' && github.event.action == 'closed' && github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -13,23 +14,42 @@ jobs:
         with:
           node-version: 18
       - run: npm install --frozen-lockfile
-      - run: rm -rf ./dist
-      - run: npm cache clean
-      - run: npm build
 
   publish-gpr:
     needs: build
     runs-on: ubuntu-latest
     permissions:
       packages: write
-      contents: read
+      contents: write
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 18
           registry-url: https://npm.pkg.github.com/
+          scope: '@bajra-manandhar17'
+
       - run: npm install --frozen-lockfile
-      - run: npm publish
+
+      - name: Bump version and push tag
+        id: bump_version
+        uses: phips28/gh-action-bump-version@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
+        with:
+          minor-wording: add,Adds,new
+          major-wording: MAJOR,cut-major
+          patch-wording: patch,fixes
+          rc-wording: RELEASE,alpha
+
+      - run: |
+          git config --global user.email "${{ github.actor }}@noreply.github.com"
+          git config --global user.name "${{ github.actor }}"
+          echo "${{ steps.bump_version.outputs.tag }}"
+      - run: rm -rf ./dist
+      - run: npm cache clean
+      - run: npm build
+      - run: npm version --new-version "${{ steps.bump_version.outputs.tag }}" && npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}

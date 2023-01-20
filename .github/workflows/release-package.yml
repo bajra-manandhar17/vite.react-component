@@ -35,7 +35,7 @@ jobs:
         id: bump_version
         uses: phips28/gh-action-bump-version@master
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
           WITH_V: true
         with:
           minor-wording: add,Adds,new

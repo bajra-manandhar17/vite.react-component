@@ -49,6 +49,6 @@ jobs:
           echo "${{ steps.bump_version.outputs.tag }}"
       - run: rm -rf ./dist
       - run: npm run build
-      - run: npm version --new-version "${{ steps.bump_version.outputs.tag }}" && npm publish
+      - run: npm version "${{ steps.bump_version.outputs.tag }}" && npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}

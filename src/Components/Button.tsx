@@ -3,7 +3,7 @@ import { Button as MuiButton, ButtonProps as MuiButtonProps } from '@mui/materia
 type ButtonBaseProps = Omit<MuiButtonProps, 'disableRipple'>;
 
 export interface ButtonProps extends ButtonBaseProps {
-  label: string;
+  label?: string;
 }
 
 const Button = ({ label, ...rest }: ButtonProps) => <MuiButton {...rest}>{label}</MuiButton>;

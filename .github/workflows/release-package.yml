@@ -26,9 +26,9 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-        registry-url: https://npm.pkg.github.com/
-        scope: '@bajra-manandhar17'
-        node-version: 18
+          registry-url: https://npm.pkg.github.com/
+          scope: '@bajra-manandhar17'
+          node-version: 18
       - name: Bump version and push tag
         id: bump_version
         uses: phips28/gh-action-bump-version@master

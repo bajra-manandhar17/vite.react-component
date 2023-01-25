@@ -12,6 +12,10 @@
   "publishConfig": {
     "@bajra-manandhar17:registry": "https://npm.pkg.github.com"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bajra-manandhar17/vite.react-component.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

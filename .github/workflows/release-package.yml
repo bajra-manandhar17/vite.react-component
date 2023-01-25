@@ -20,7 +20,7 @@ jobs:
   release:
     needs: build
     runs-on: ubuntu-latest
-    permission:
+    permissions:
       contents: write
       packages: write
     steps:
@@ -35,12 +35,11 @@ jobs:
         uses: 'phips28/gh-action-bump-version@master'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WITH_V: true
         with:
-          minor-wording: add,Adds,new
-          major-wording: MAJOR,cut-major
-          patch-wording: patch,fixes
-          rc-wording: RELEASE,alpha
+          minor-wording: 'add,Adds,new'
+          major-wording: 'MAJOR,cut-major'
+          patch-wording: 'patch,fixes'
+          rc-wording: 'RELEASE,alpha'
       - run: |
           git config --global user.email "${{ github.actor }}@noreply.github.com"
           git config --global user.name "${{ github.actor }}"

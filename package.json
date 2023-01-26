@@ -1,7 +1,7 @@
 {
   "name": "@bajra-manandhar17/vite.react-component",
   "private": false,
-  "version": "0.0.11",
+  "version": "0.0.12",
   "type": "module",
   "main": "./dist/vite-package.umd.js",
   "module": "./dist/vite-package.es.js",

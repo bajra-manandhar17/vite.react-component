@@ -1,29 +1,31 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+// Button.stories.ts|tsx
+
 import Button from '../Button';
 
-export default {
+// Replace your-framework with the name of your framework
+import type { Meta, StoryObj } from '@storybook/react';
+
+const meta: Meta<typeof Button> = {
+  /* 👇 The title prop is optional.
+   * See https://storybook.js.org/docs/7.0/react/configure/overview#configure-story-loading
+   * to learn how to generate automatic titles
+   */
   title: 'Button',
   component: Button,
-} as ComponentMeta<typeof Button>;
-
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
-
-export const Primary = Template.bind({});
-Primary.args = {
-  label: 'Button',
-  variant: 'contained',
 };
 
-export const Large = Template.bind({});
-Large.args = {
-  label: 'Button',
-  size: 'large',
-  variant: 'contained',
+export default meta;
+type Story = StoryObj<typeof Button>;
+
+export const Primary: Story = {
+  args: {
+    label: 'Button',
+  },
 };
 
-export const Small = Template.bind({});
-Small.args = {
-  label: 'Button',
-  size: 'small',
-  variant: 'contained',
+export const PrimaryLongName: Story = {
+  args: {
+    ...Primary.args,
+    label: 'Primary with a really long name',
+  },
 };
